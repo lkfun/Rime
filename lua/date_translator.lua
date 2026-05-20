@@ -90,8 +90,9 @@ function M.func(input, seg, env)
             and "Z"
             or tz:gsub("(%d%d)$", ":%1")
 
-        yield_cand(seg, os.date('%Y-%m-%dT%H:%M:%S', current_time) .. iso_tz)
         yield_cand(seg, os.date('%Y-%m-%d %H:%M:%S', current_time))
+        yield_cand(seg, os.date('%Y年%m月%d日%H时%M分%S秒', current_time))
+        yield_cand(seg, os.date('%Y-%m-%dT%H:%M:%S', current_time) .. iso_tz)
         yield_cand(seg, os.date('%Y%m%d%H%M%S', current_time))
 
         -- 时间戳（十位数，到秒，示例 1650861664）

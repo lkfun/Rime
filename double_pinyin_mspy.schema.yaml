@@ -96,19 +96,19 @@ engine:
 
 # Lua 配置: 日期、时间、星期、ISO 8601、时间戳的触发关键字
 date_translator:
-  date: date            # 日期： 2022-11-29
-  time: time            # 时间： 18:13
-  week: week            # 星期： 星期二
-  datetime: datetime    # ISO 8601： 2022-11-29T18:13:11+08:00
-  timestamp: timestamp  # 时间戳： 1669716794
-  datezh: datezh        # 中文日期： 二〇二六年二月二十五日 | 二零二六年二月二十五日
-  dateen: dateen        # 英文日期： 英式 8 March 2026 | 美式 March 8, 2026
+  date: rq            # 日期： 2022-11-29
+  time: sj            # 时间： 18:13
+  week: xq            # 星期： 星期二
+  datetime: rqsj      # ISO 8601： 2022-11-29T18:13:11+08:00
+  timestamp: ts  # 时间戳： 1669716794
+  datezh: rqh        # 中文日期： 二〇二六年二月二十五日 | 二零二六年二月二十五日
+  dateen: rqe        # 英文日期： 英式 8 March 2026 | 美式 March 8, 2026
 
 
 # Lua 配置：农历
 # 农历触发关键字
 # template 字段：{干支年} {农历月} {农历日} {生肖} {俗称农历月} {简记农历日}
-lunar: lunar
+lunar: nl
 lunar_template: "{干支年}{生肖}年{俗称农历月}{农历日}"
 
 
@@ -289,10 +289,10 @@ radical_reverse_lookup:
   tags: [ radical_lookup ]
   # dictionary 为拼音标注来源，目前是显示本方案词库的注音。
   # 可去部件拆字方案下载更全的、带声调的、已编译好的词典： https://github.com/mirtlecn/rime-radical-pinyin#反查带声调注音
-  dictionary: rime_ice
-  # comment_format:     # 自定义 comment，例如在左右加上括号
-  #  - xform/^/(/
-  #  - xform/$/)/
+  dictionary: radical_pinyin
+  comment_format:     # 自定义 comment，例如在左右加上括号
+   - xform/^/(/
+   - xform/$/)/
 
 
 # 处理符合特定规则的输入码，如网址、反查

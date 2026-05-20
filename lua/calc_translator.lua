@@ -212,9 +212,12 @@ function calc.func( input, seg, env )
     if express == '' then return end -- 防止用户写错了正则表达式造成错误
     local code = replacePercent( replaceToFactorial( express ) )
     local success, result = pcall( load( 'return ' .. code, 'calculate', 't', calcPlugin ) )
+    if type(result) == 'number' and math.abs(result) < 1e-10 then
+        result = 0
+    end
     if success and result and (type( result ) == 'string' or type( result ) == 'number') and #tostring( result ) > 0 then
-        yield_calc_cand( seg, result, '', express, env.show_prefix )
-        yield_calc_cand( seg, express .. '=' .. result, '', express, env.show_prefix )
+        yield_calc_cand( seg, result, '', express:gsub('pi', 'π'), env.show_prefix )
+        yield_calc_cand( seg, express:gsub('pi', 'π') .. '=' .. result, '', express, env.show_prefix )
     else
         yield_calc_cand( seg, express, '解析失败', express, env.show_prefix )
         yield_calc_cand( seg, code, '入参', express, env.show_prefix )
