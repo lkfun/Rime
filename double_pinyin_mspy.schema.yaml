@@ -81,6 +81,7 @@ engine:
     - lua_translator@*unicode            # Unicode
     - lua_translator@*number_translator  # 数字、金额大写
     - lua_translator@*calc_translator    # 计算器
+    - lua_translator@*test
     - lua_translator@*force_gc           # 暴力 GC
   filters:
     - lua_filter@*corrector                         # 错音错字提示
@@ -289,10 +290,10 @@ radical_reverse_lookup:
   tags: [ radical_lookup ]
   # dictionary 为拼音标注来源，目前是显示本方案词库的注音。
   # 可去部件拆字方案下载更全的、带声调的、已编译好的词典： https://github.com/mirtlecn/rime-radical-pinyin#反查带声调注音
-  dictionary: radical_pinyin
-  comment_format:     # 自定义 comment，例如在左右加上括号
-   - xform/^/(/
-   - xform/$/)/
+  dictionary: rime_ice
+  # comment_format:     # 自定义 comment，例如在左右加上括号
+  #  - xform/^/(/
+  #  - xform/$/)/
 
 
 # 处理符合特定规则的输入码，如网址、反查
