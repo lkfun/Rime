@@ -39,7 +39,7 @@ patch:
     datezh: datezh        # 中文日期： 二〇二六年二月二十五日 | 二零二六年二月二十五日
     dateen: dateen        # 英文日期： 英式 8 March 2026 | 美式 March 8, 2026
   lunar: nl
-
+  search/schema_search_limit: 5000
   weather: weather          # 输入 weather 输出默认城市
   weather_prefix: W         # 输入 W北京 输出北京天气
   weather_default_city: fuzhou
