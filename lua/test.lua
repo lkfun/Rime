@@ -3,8 +3,8 @@ local http = require("simplehttp")
 local json = require("json")
 local function test(input, seg)
     if (input == "tt") then -- 关键字更改，你也可以用or语句定义多个关键字
-        file = io.open("C:/TEMP/test.txt", "r")
-        a = file:read()
+        local file = io.open("C:/TEMP/test.txt", "r")
+        local a = file:read("*a")
         io.close()
         yield(Candidate("time", seg.start, seg._end, a, " "))
     elseif input == "tq" then
